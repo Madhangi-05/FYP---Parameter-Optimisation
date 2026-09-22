@@ -25,11 +25,31 @@ from src.data.vqezy_loader import load_instance
 from src.graphs.build_instance import build_graph_instance
 from src.models.initializer import VQEInitializer
 from src.quantum.hamiltonians import build_hamiltonian, true_ground_energy
-from src.quantum.run_baseline_batch import REPO_ROOT, INSTANCES
+from src.quantum.run_baseline_batch import REPO_ROOT
 from src.quantum.vqe_torch import make_torch_vqe
 
-TRAIN_INSTANCES = INSTANCES[:7]
-HELD_OUT_INSTANCES = INSTANCES[7:]
+# All 3 families represented in TRAINING this time (the previous split
+# accidentally excluded `ti` entirely, so its held-out failures were really
+# "never seen this family at all" rather than a fair generalization test).
+# Held-out now separates two different kinds of generalization:
+#   - unseen SAMPLE within a trained family+size (xyz s2, fh_6q s1, ti s1)
+#   - unseen QUBIT COUNT entirely (xyz_12_qubit -- never trained above 8q)
+TRAIN_INSTANCES = [
+    ("external/VQEzy/qmanybody/xyz_4_qubit.h5", "sample_0"),
+    ("external/VQEzy/qmanybody/xyz_4_qubit.h5", "sample_1"),
+    ("external/VQEzy/qmanybody/fh_4_qubit.h5", "sample_0"),
+    ("external/VQEzy/qmanybody/fh_4_qubit.h5", "sample_1"),
+    ("external/VQEzy/qmanybody/fh_6_qubit.h5", "sample_0"),
+    ("external/VQEzy/qmanybody/fh_8_qubit.h5", "sample_0"),
+    ("external/VQEzy/qmanybody/ti_8_qubit.h5", "sample_0"),
+    ("external/VQEzy/qmanybody/ti_8_qubit.h5", "sample_2"),
+]
+HELD_OUT_INSTANCES = [
+    ("external/VQEzy/qmanybody/xyz_4_qubit.h5", "sample_2"),
+    ("external/VQEzy/qmanybody/xyz_12_qubit.h5", "sample_0"),
+    ("external/VQEzy/qmanybody/fh_6_qubit.h5", "sample_1"),
+    ("external/VQEzy/qmanybody/ti_8_qubit.h5", "sample_1"),
+]
 
 
 def _prepare(h5_rel, sample, n_layers, topology, noise_level, seed):
@@ -85,11 +105,14 @@ def main():
             mean_loss = sum(epoch_losses) / len(epoch_losses)
             print(f"  epoch {epoch:3d}: mean train E(theta0) = {mean_loss:8.4f}")
 
+    train_families_sizes = {(load_instance(REPO_ROOT / h5, s).family, load_instance(REPO_ROOT / h5, s).n_qubits) for h5, s in TRAIN_INSTANCES}
+
     print(f"\n=== Held-out evaluation ({len(HELD_OUT_INSTANCES)} instances, model never trained on these) ===")
     model.eval()
     wins = 0
     for h5, s in HELD_OUT_INSTANCES:
         instance, gi, circuit, ground = _prepare(h5, s, args.n_layers, "ring", "medium", seed=99)
+        kind = "unseen_qubit_count" if (instance.family, instance.n_qubits) not in train_families_sizes else "unseen_sample"
         with torch.no_grad():
             theta0 = model(gi)
         gnn_energy = circuit(theta0).item()
@@ -97,7 +120,8 @@ def main():
         better = gnn_energy < rand_energy
         wins += better
         print(
-            f"  {instance.family:3s}/{s}: GNN_init_E={gnn_energy:8.4f}  "
+            f"  {instance.family:3s}/{s} ({instance.n_qubits}q, {kind:>18s}): "
+            f"GNN_init_E={gnn_energy:8.4f}  "
             f"random_init_E(avg of 5)={rand_energy:8.4f}  "
             f"true_ground={ground if ground is not None else float('nan'):8.4f}  "
             f"GNN_better={better}"
