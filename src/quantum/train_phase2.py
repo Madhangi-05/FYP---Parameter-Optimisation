@@ -57,13 +57,30 @@ def build_split(train_per_file: int, heldout_per_file: int, heldout_unseen_size:
     return train, held_out
 
 
-def _prepare(h5_rel, sample, n_layers, topology, noise_level, seed):
+def _prepare(h5_rel, sample, n_layers, topology, noise_level, seed, diff_method="best"):
     instance = load_instance(REPO_ROOT / h5_rel, sample)
     gi = build_graph_instance(instance, n_layers=n_layers, topology=topology, noise_level=noise_level, seed=seed)
     hamiltonian, n_qubits = build_hamiltonian(instance)
-    circuit = make_torch_vqe(hamiltonian, n_qubits, n_layers)
+    circuit = make_torch_vqe(hamiltonian, n_qubits, n_layers, diff_method=diff_method)
     ground = true_ground_energy(hamiltonian, n_qubits)
     return instance, gi, circuit, ground
+
+
+def unrolled_final_energy(model, gi, circuit, k_steps: int, inner_lr: float):
+    """loss = E(theta_K), theta_K = K steps of GD from theta_0 = model(gi).
+    Trains the GNN for 'leads somewhere good after K optimizer steps', not
+    'starts low' -- the direct-E(theta0) objective was empirically shown to
+    produce starting points with low energy but weak/flat local gradients
+    (see compare_init_strategies.py results), which a subsequent optimizer
+    then can't make progress from. Requires diff_method="parameter-shift"
+    on `circuit` (create_graph=True needs a second-order-differentiable
+    diff_method; "best"/adjoint does not reliably support that)."""
+    theta = model(gi)
+    for _ in range(k_steps):
+        energy = circuit(theta)
+        grad = torch.autograd.grad(energy, theta, create_graph=True)[0]
+        theta = theta - inner_lr * grad
+    return circuit(theta)
 
 
 def random_baseline_energy(circuit, n_layers, n_qubits, n_trials=5, seed=0):
@@ -89,6 +106,11 @@ def main():
     ap.add_argument("--heldout-per-file", type=int, default=4)
     ap.add_argument("--heldout-unseen-size", type=int, default=5)
     ap.add_argument("--ckpt-name", default="phase2_initializer.pt")
+    ap.add_argument(
+        "--unroll-steps", type=int, default=0,
+        help="If >0, train against E(theta_K) after K unrolled GD steps instead of E(theta_0). Slower but avoids optimizing straight into flat/plateau regions."
+    )
+    ap.add_argument("--unroll-lr", type=float, default=0.1, help="inner-loop GD stepsize used only for the unroll")
     args = ap.parse_args()
 
     train_instances, held_out_instances = build_split(
@@ -99,28 +121,32 @@ def main():
     model = VQEInitializer(hidden=args.hidden, gnn_layers=args.gnn_layers)
     opt = torch.optim.Adam(model.parameters(), lr=args.lr)
 
+    diff_method = "parameter-shift" if args.unroll_steps > 0 else "best"
     t_prep0 = time.perf_counter()
     train_data = [
-        _prepare(h5, s, args.n_layers, "ring", "medium", seed=i)
+        _prepare(h5, s, args.n_layers, "ring", "medium", seed=i, diff_method=diff_method)
         for i, (h5, s) in enumerate(train_instances)
     ]
     print(f"Prepared {len(train_data)} training instances in {time.perf_counter()-t_prep0:.1f}s")
 
-    print(f"Training on {len(train_data)} instances, {args.epochs} epochs...")
+    loss_label = f"E(theta_{args.unroll_steps})" if args.unroll_steps > 0 else "E(theta_0)"
+    print(f"Training on {len(train_data)} instances, {args.epochs} epochs, loss={loss_label}...")
     t_train0 = time.perf_counter()
     for epoch in range(args.epochs):
         epoch_losses = []
         t_epoch0 = time.perf_counter()
         for instance, gi, circuit, ground in train_data:
             opt.zero_grad()
-            theta0 = model(gi)
-            energy = circuit(theta0)
+            if args.unroll_steps > 0:
+                energy = unrolled_final_energy(model, gi, circuit, args.unroll_steps, args.unroll_lr)
+            else:
+                energy = circuit(model(gi))
             energy.backward()
             opt.step()
             epoch_losses.append(energy.item())
         mean_loss = sum(epoch_losses) / len(epoch_losses)
         print(
-            f"  epoch {epoch:3d}: mean train E(theta0) = {mean_loss:8.4f}  "
+            f"  epoch {epoch:3d}: mean train {loss_label} = {mean_loss:8.4f}  "
             f"({time.perf_counter()-t_epoch0:.1f}s)"
         )
     print(f"Total training time: {time.perf_counter()-t_train0:.1f}s")
