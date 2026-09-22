@@ -1,0 +1,30 @@
+File: external/VQEzy/qmanybody/xyz_4_qubit.h5
+Top-level groups: ['coupling_const', 'loss_history', 'n_qubits', 'opt_params']
+Total samples in file: 2000
+
+=== sample_0 ===
+coupling_const: [-2.1  0.4  3. ]
+loss_history: shape=(2000,) dtype=float64
+  first 5: [4.29662943 4.1972518  4.09857273 4.0006876  3.90368843]
+  last 5:  [-9. -9. -9. -9. -9.]
+n_qubits: 4
+opt_params: [[[ 3.1415927e+00  2.8110401e-07  5.8544392e-09 -4.0157656e-07]
+  [-3.9379636e-10 -3.1415918e+00  5.2506187e-11 -6.0636842e-07]]]
+
+=== sample_1 ===
+coupling_const: [-2.9 -0.6 -0.5]
+loss_history: shape=(2000,) dtype=float64
+  first 5: [-0.70068341 -0.72446185 -0.74828458 -0.77213889 -0.79601586]
+  last 5:  [-8.69999981 -8.69999981 -8.69999981 -8.69999981 -8.69999981]
+n_qubits: 4
+opt_params: [[[ 1.4356621e-09 -1.5707963e+00  6.9409611e-09 -1.5707964e+00]
+  [ 6.5661055e-08 -1.5707964e+00  3.1415920e+00  1.5707964e+00]]]
+
+=== sample_10 ===
+coupling_const: [-3.  -2.4 -0.7]
+loss_history: shape=(2000,) dtype=float64
+  first 5: [-2.81435537 -2.88906598 -2.96299887 -3.03611541 -3.10840058]
+  last 5:  [-9. -9. -9. -9. -9.]
+n_qubits: 4
+opt_params: [[[-1.3053558e-39 -1.5707963e+00 -1.4799267e-39 -1.5707963e+00]
+  [-2.0385880e-39 -1.5707965e+00 -3.0630254e-39 -1.5707967e+00]]]

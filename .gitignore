@@ -7,3 +7,4 @@ results/*.json
 # Cloned reference repos (VQEzy dataset, Qracle baseline) - not our own code,
 # nested git histories, ~250MB of data. Re-clone via the commands in README.
 external/
+checkpoints/
