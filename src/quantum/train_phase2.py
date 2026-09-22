@@ -9,47 +9,52 @@ straight into the GNN. Decision gate (from work_implementation.docx Phase 2):
 does the GNN-predicted theta_0 beat random initialization's E(theta_0) on
 HELD-OUT instances?
 
-Only 10 instances total here (7 train / 3 held-out) -- this is a smoke test
-that the architecture can learn something at all, not a real experiment.
-Scaling to hundreds+ of VQEzy instances is the natural next step once this
-is confirmed to work.
+Split is built programmatically from real sample counts per VQEzy file
+(--train-per-file, --heldout-per-file), not a hardcoded instance list, so
+this scales from a quick smoke test up to hundreds of instances with the
+same code. xyz_12_qubit is always reserved entirely for held-out, as the
+one genuine "unseen qubit count" test (all training stays <=8 qubits, so
+circuit simulation cost stays cheap on CPU).
 """
 from __future__ import annotations
 
 import argparse
+import random
+import time
 
 import torch
 from pennylane import numpy as pnp
 
-from src.data.vqezy_loader import load_instance
+from src.data.vqezy_loader import iter_sample_keys, load_instance
 from src.graphs.build_instance import build_graph_instance
 from src.models.initializer import VQEInitializer
 from src.quantum.hamiltonians import build_hamiltonian, true_ground_energy
 from src.quantum.run_baseline_batch import REPO_ROOT
 from src.quantum.vqe_torch import make_torch_vqe
 
-# All 3 families represented in TRAINING this time (the previous split
-# accidentally excluded `ti` entirely, so its held-out failures were really
-# "never seen this family at all" rather than a fair generalization test).
-# Held-out now separates two different kinds of generalization:
-#   - unseen SAMPLE within a trained family+size (xyz s2, fh_6q s1, ti s1)
-#   - unseen QUBIT COUNT entirely (xyz_12_qubit -- never trained above 8q)
-TRAIN_INSTANCES = [
-    ("external/VQEzy/qmanybody/xyz_4_qubit.h5", "sample_0"),
-    ("external/VQEzy/qmanybody/xyz_4_qubit.h5", "sample_1"),
-    ("external/VQEzy/qmanybody/fh_4_qubit.h5", "sample_0"),
-    ("external/VQEzy/qmanybody/fh_4_qubit.h5", "sample_1"),
-    ("external/VQEzy/qmanybody/fh_6_qubit.h5", "sample_0"),
-    ("external/VQEzy/qmanybody/fh_8_qubit.h5", "sample_0"),
-    ("external/VQEzy/qmanybody/ti_8_qubit.h5", "sample_0"),
-    ("external/VQEzy/qmanybody/ti_8_qubit.h5", "sample_2"),
+TRAIN_FILES = [
+    "external/VQEzy/qmanybody/xyz_4_qubit.h5",
+    "external/VQEzy/qmanybody/fh_4_qubit.h5",
+    "external/VQEzy/qmanybody/fh_6_qubit.h5",
+    "external/VQEzy/qmanybody/fh_8_qubit.h5",
+    "external/VQEzy/qmanybody/ti_8_qubit.h5",
 ]
-HELD_OUT_INSTANCES = [
-    ("external/VQEzy/qmanybody/xyz_4_qubit.h5", "sample_2"),
-    ("external/VQEzy/qmanybody/xyz_12_qubit.h5", "sample_0"),
-    ("external/VQEzy/qmanybody/fh_6_qubit.h5", "sample_1"),
-    ("external/VQEzy/qmanybody/ti_8_qubit.h5", "sample_1"),
-]
+UNSEEN_SIZE_FILE = "external/VQEzy/qmanybody/xyz_12_qubit.h5"  # reserved, never in training
+
+
+def build_split(train_per_file: int, heldout_per_file: int, heldout_unseen_size: int, seed: int = 0):
+    rng = random.Random(seed)
+    train, held_out = [], []
+    for h5_rel in TRAIN_FILES:
+        keys = iter_sample_keys(REPO_ROOT / h5_rel)
+        rng.shuffle(keys)
+        train += [(h5_rel, k) for k in keys[:train_per_file]]
+        held_out += [(h5_rel, k) for k in keys[train_per_file : train_per_file + heldout_per_file]]
+
+    unseen_keys = iter_sample_keys(REPO_ROOT / UNSEEN_SIZE_FILE)
+    rng.shuffle(unseen_keys)
+    held_out += [(UNSEEN_SIZE_FILE, k) for k in unseen_keys[:heldout_unseen_size]]
+    return train, held_out
 
 
 def _prepare(h5_rel, sample, n_layers, topology, noise_level, seed):
@@ -75,25 +80,37 @@ def random_baseline_energy(circuit, n_layers, n_qubits, n_trials=5, seed=0):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--n-layers", type=int, default=2)
-    ap.add_argument("--epochs", type=int, default=30)
+    ap.add_argument("--epochs", type=int, default=15)
     ap.add_argument("--lr", type=float, default=1e-3)
     ap.add_argument("--hidden", type=int, default=32)
     ap.add_argument("--gnn-layers", type=int, default=2)
     ap.add_argument("--seed", type=int, default=0)
+    ap.add_argument("--train-per-file", type=int, default=16)
+    ap.add_argument("--heldout-per-file", type=int, default=4)
+    ap.add_argument("--heldout-unseen-size", type=int, default=5)
+    ap.add_argument("--ckpt-name", default="phase2_initializer.pt")
     args = ap.parse_args()
+
+    train_instances, held_out_instances = build_split(
+        args.train_per_file, args.heldout_per_file, args.heldout_unseen_size, seed=args.seed
+    )
 
     torch.manual_seed(args.seed)
     model = VQEInitializer(hidden=args.hidden, gnn_layers=args.gnn_layers)
     opt = torch.optim.Adam(model.parameters(), lr=args.lr)
 
+    t_prep0 = time.perf_counter()
     train_data = [
         _prepare(h5, s, args.n_layers, "ring", "medium", seed=i)
-        for i, (h5, s) in enumerate(TRAIN_INSTANCES)
+        for i, (h5, s) in enumerate(train_instances)
     ]
+    print(f"Prepared {len(train_data)} training instances in {time.perf_counter()-t_prep0:.1f}s")
 
     print(f"Training on {len(train_data)} instances, {args.epochs} epochs...")
+    t_train0 = time.perf_counter()
     for epoch in range(args.epochs):
         epoch_losses = []
+        t_epoch0 = time.perf_counter()
         for instance, gi, circuit, ground in train_data:
             opt.zero_grad()
             theta0 = model(gi)
@@ -101,18 +118,28 @@ def main():
             energy.backward()
             opt.step()
             epoch_losses.append(energy.item())
-        if epoch % 5 == 0 or epoch == args.epochs - 1:
-            mean_loss = sum(epoch_losses) / len(epoch_losses)
-            print(f"  epoch {epoch:3d}: mean train E(theta0) = {mean_loss:8.4f}")
+        mean_loss = sum(epoch_losses) / len(epoch_losses)
+        print(
+            f"  epoch {epoch:3d}: mean train E(theta0) = {mean_loss:8.4f}  "
+            f"({time.perf_counter()-t_epoch0:.1f}s)"
+        )
+    print(f"Total training time: {time.perf_counter()-t_train0:.1f}s")
 
-    train_families_sizes = {(load_instance(REPO_ROOT / h5, s).family, load_instance(REPO_ROOT / h5, s).n_qubits) for h5, s in TRAIN_INSTANCES}
+    train_families_sizes = {
+        (load_instance(REPO_ROOT / h5, s).family, load_instance(REPO_ROOT / h5, s).n_qubits)
+        for h5, s in train_instances
+    }
 
-    print(f"\n=== Held-out evaluation ({len(HELD_OUT_INSTANCES)} instances, model never trained on these) ===")
+    print(f"\n=== Held-out evaluation ({len(held_out_instances)} instances, model never trained on these) ===")
     model.eval()
     wins = 0
-    for h5, s in HELD_OUT_INSTANCES:
+    for h5, s in held_out_instances:
         instance, gi, circuit, ground = _prepare(h5, s, args.n_layers, "ring", "medium", seed=99)
-        kind = "unseen_qubit_count" if (instance.family, instance.n_qubits) not in train_families_sizes else "unseen_sample"
+        kind = (
+            "unseen_qubit_count"
+            if (instance.family, instance.n_qubits) not in train_families_sizes
+            else "unseen_sample"
+        )
         with torch.no_grad():
             theta0 = model(gi)
         gnn_energy = circuit(theta0).item()
@@ -127,12 +154,12 @@ def main():
             f"GNN_better={better}"
         )
 
-    print(f"\nGNN beat random init on {wins}/{len(HELD_OUT_INSTANCES)} held-out instances.")
+    print(f"\nGNN beat random init on {wins}/{len(held_out_instances)} held-out instances.")
 
     ckpt_dir = REPO_ROOT / "checkpoints"
     ckpt_dir.mkdir(exist_ok=True)
-    torch.save(model.state_dict(), ckpt_dir / "phase2_initializer.pt")
-    print(f"Saved -> {ckpt_dir / 'phase2_initializer.pt'}")
+    torch.save(model.state_dict(), ckpt_dir / args.ckpt_name)
+    print(f"Saved -> {ckpt_dir / args.ckpt_name}")
 
 
 if __name__ == "__main__":
