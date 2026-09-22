@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+results/*.json
+.ipynb_checkpoints/
+
+# Cloned reference repos (VQEzy dataset, Qracle baseline) - not our own code,
+# nested git histories, ~250MB of data. Re-clone via the commands in README.
+external/
