@@ -18,7 +18,7 @@ from pennylane import numpy as pnp
 
 from src.data.vqezy_loader import iter_sample_keys, load_instance
 from src.quantum.ansatz import czrxry_ansatz, n_params
-from src.quantum.hamiltonians import build_hamiltonian
+from src.quantum.hamiltonians import EXACT_DIAG_MAX_QUBITS, build_hamiltonian, true_ground_energy
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
@@ -73,11 +73,20 @@ def main():
 
     instance = load_instance(args.h5, args.sample)
     hamiltonian, n_qubits = build_hamiltonian(instance)
-    target_energy = float(instance.reference_loss_history[-1])
+    vqezy_reference = float(instance.reference_loss_history[-1])
+    exact_ground = true_ground_energy(hamiltonian, n_qubits)
+    target_energy = exact_ground if exact_ground is not None else vqezy_reference
     p = n_params(n_qubits, args.n_layers)
 
     print(f"[{instance.family}] {args.sample}: n_qubits={n_qubits}, n_params={p}")
-    print(f"VQEzy reference final energy (their optimizer, {len(instance.reference_loss_history)} steps): {target_energy:.6f}")
+    print(f"VQEzy reference final energy (their optimizer, {len(instance.reference_loss_history)} steps): {vqezy_reference:.6f}")
+    if exact_ground is not None:
+        print(f"Exact ground energy (diagonalization) -- used as target: {exact_ground:.6f}")
+    else:
+        print(
+            f"n_qubits > {EXACT_DIAG_MAX_QUBITS} -- exact diag skipped, "
+            "using VQEzy reference as target (may be under-converged)"
+        )
 
     rng = pnp.random.default_rng(args.seed)
     init = pnp.array(
@@ -116,7 +125,9 @@ def main():
                     "sample": args.sample,
                     "n_qubits": n_qubits,
                     "n_layers": args.n_layers,
-                    "target_energy_reference": target_energy,
+                    "vqezy_reference_energy": vqezy_reference,
+                    "exact_ground_energy": exact_ground,
+                    "target_energy_used": target_energy,
                 },
                 "results": results,
             },
