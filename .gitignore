@@ -8,3 +8,4 @@ results/*.json
 # nested git histories, ~250MB of data. Re-clone via the commands in README.
 external/
 checkpoints/
+data_cache/
