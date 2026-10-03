@@ -46,9 +46,12 @@ def select_comparison_instances(n_per_category: int = 2, seed: int = 0):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--ckpt", default=str(REPO_ROOT / "checkpoints" / "phase2_initializer_scaled.pt"))
-    ap.add_argument("--hidden", type=int, default=32)
-    ap.add_argument("--gnn-layers", type=int, default=2)
+    ap.add_argument("--ckpt", default=str(REPO_ROOT / "checkpoints" / "gpu_initializer.pt"))
+    # Must match whatever --hidden/--gnn-layers the checkpoint was actually
+    # trained with (train_gpu.py's defaults are 64/3) -- a mismatch doesn't
+    # warn, it just fails to load_state_dict with a shape error.
+    ap.add_argument("--hidden", type=int, default=64)
+    ap.add_argument("--gnn-layers", type=int, default=3)
     ap.add_argument("--n-layers", type=int, default=2)
     ap.add_argument("--n-steps", type=int, default=50)
     ap.add_argument("--gd-stepsize", type=float, default=0.1)
