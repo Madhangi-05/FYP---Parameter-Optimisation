@@ -29,9 +29,8 @@ import torch
 from pennylane import numpy as pnp
 
 from src.data.build_dataset import DATASET_DIR
-from src.data.vqezy_loader import load_instance
 from src.models.initializer import VQEInitializer
-from src.quantum.hamiltonians import build_hamiltonian
+from src.quantum.hamiltonians import build_hamiltonian_from_params
 from src.quantum.run_baseline_batch import REPO_ROOT
 from src.quantum.train_phase2 import random_baseline_energy
 from src.quantum.vqe_torch import make_torch_vqe
@@ -45,8 +44,13 @@ def _to_device(cached_instance, device):
 
 
 def _build_circuit(cached_instance, qdevice, diff_method):
-    instance = load_instance(REPO_ROOT / cached_instance.h5_rel, cached_instance.sample)
-    hamiltonian, n_qubits = build_hamiltonian(instance)
+    """Rebuilds the Hamiltonian from the few cached numbers (family, coupling,
+    n_qubits) only -- never touches the raw .h5 file, so this (and the rest
+    of training) works from data_cache/ alone with no external/VQEzy present
+    on this machine at all."""
+    hamiltonian, n_qubits = build_hamiltonian_from_params(
+        cached_instance.family, cached_instance.coupling, cached_instance.n_qubits
+    )
     import pennylane as qml
 
     dev = qml.device(qdevice, wires=n_qubits)

@@ -53,7 +53,8 @@ DATASET_DIR = REPO_ROOT / "data_cache"
 class CachedInstance:
     family: str
     sample: str
-    h5_rel: str  # so train_gpu.py can cheaply rebuild the Hamiltonian
+    h5_rel: str  # kept for provenance/debugging only -- NOT needed to rebuild the Hamiltonian
+    coupling: object  # numpy array: the handful of raw physics params (J1,J2,J3 / t,U / j,h)
     n_qubits: int
     n_layers: int
     hamiltonian_graph: Data
@@ -74,6 +75,7 @@ def _extract(h5_rel, sample, n_layers, topology, noise_level, seed, need_ground)
         ground = true_ground_energy(hamiltonian, n_qubits)
     return CachedInstance(
         family=instance.family,
+        coupling=instance.coupling,
         sample=sample,
         h5_rel=h5_rel,
         n_qubits=gi.n_qubits,

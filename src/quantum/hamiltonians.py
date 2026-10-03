@@ -31,31 +31,40 @@ def true_ground_energy(hamiltonian, n_qubits: int) -> float | None:
     return float(np.linalg.eigvalsh(mat)[0].real)
 
 
-def build_hamiltonian(instance: VQEzyInstance):
-    """Returns (hamiltonian, n_qubits) for a VQEzy qmanybody instance."""
-    if instance.family == "xyz":
-        n_qubits = instance.n_qubits
-        J = instance.coupling  # (J1, J2, J3)
+def build_hamiltonian_from_params(family: str, coupling, n_qubits: int):
+    """Returns (hamiltonian, n_qubits). Takes just the 3 plain numbers/arrays
+    actually needed (family, coupling, n_qubits) rather than a full
+    VQEzyInstance, so this can be called WITHOUT ever touching the raw .h5
+    file -- e.g. from a cached dataset (build_dataset.py / train_gpu.py)
+    that only stored these, on a machine that never cloned external/VQEzy at
+    all. build_hamiltonian() below is a thin wrapper for call sites that
+    already have the full loaded instance.
+    """
+    if family == "xyz":
+        J = coupling  # (J1, J2, J3)
         h = qml.spin.heisenberg("chain", [n_qubits], coupling=J)
         return h, n_qubits
 
-    if instance.family == "fh":
-        n_qubits = instance.n_qubits
-        t, U = instance.coupling
+    if family == "fh":
+        t, U = coupling
         n_cells = [n_qubits // 2]
         h = qml.spin.fermi_hubbard(
             "chain", n_cells, hopping=float(t), coulomb=float(U), mapping="jordan_wigner"
         )
         return h, n_qubits
 
-    if instance.family == "ti":
+    if family == "ti":
         # VQEzy fixes the TI lattice at cell_len=4, cell_wid=2 -> 8 qubits.
         cell_len, cell_wid = 4, 2
-        n_qubits = cell_len * cell_wid
-        j, hf = instance.coupling
+        j, hf = coupling
         h = qml.spin.transverse_ising(
             "rectangle", [cell_len, cell_wid], coupling=float(j), h=float(hf)
         )
         return h, n_qubits
 
-    raise ValueError(f"Unknown family: {instance.family}")
+    raise ValueError(f"Unknown family: {family}")
+
+
+def build_hamiltonian(instance: VQEzyInstance):
+    """Returns (hamiltonian, n_qubits) for a VQEzy qmanybody instance."""
+    return build_hamiltonian_from_params(instance.family, instance.coupling, instance.n_qubits)
