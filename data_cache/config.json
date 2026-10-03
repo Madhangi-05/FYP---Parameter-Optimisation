@@ -1,8 +1,8 @@
 {
-  "train_per_file": 3,
-  "val_per_file": 2,
-  "test_per_file": 2,
-  "unseen_size_count": 2,
+  "train_per_file": 200,
+  "val_per_file": 30,
+  "test_per_file": 30,
+  "unseen_size_count": 8,
   "n_layers": 2,
   "topology": "ring",
   "noise_level": "medium",
