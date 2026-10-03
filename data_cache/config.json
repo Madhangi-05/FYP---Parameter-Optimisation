@@ -1,0 +1,10 @@
+{
+  "train_per_file": 3,
+  "val_per_file": 2,
+  "test_per_file": 2,
+  "unseen_size_count": 2,
+  "n_layers": 2,
+  "topology": "ring",
+  "noise_level": "medium",
+  "seed": 0
+}

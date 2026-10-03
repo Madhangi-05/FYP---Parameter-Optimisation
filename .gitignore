@@ -1,11 +1,15 @@
 .venv/
 __pycache__/
 *.pyc
-results/*.json
 .ipynb_checkpoints/
 
 # Cloned reference repos (VQEzy dataset, Qracle baseline) - not our own code,
-# nested git histories, ~250MB of data. Re-clone via the commands in README.
+# nested git histories, ~250MB of data, never needed on the GPU machine.
+# Re-clone via the commands in README if you need them locally.
 external/
-checkpoints/
-data_cache/
+
+# data_cache/, checkpoints/, and results/*.json ARE tracked (all small --
+# ~110KB per checkpoint, ~5-10KB/instance for the cache) -- this is the
+# intended round trip: laptop generates data_cache/ (push), GPU machine
+# trains (pull data_cache/, push checkpoints/+results/), laptop continues
+# evaluation/write-up (pull) without needing the GPU machine again.

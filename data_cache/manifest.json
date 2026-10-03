@@ -1,0 +1,232 @@
+{
+  "train": [
+    {
+      "h5": "external/VQEzy/qmanybody/xyz_4_qubit.h5",
+      "sample": "sample_772",
+      "family": "xyz",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/xyz_4_qubit.h5",
+      "sample": "sample_423",
+      "family": "xyz",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/xyz_4_qubit.h5",
+      "sample": "sample_702",
+      "family": "xyz",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_4_qubit.h5",
+      "sample": "sample_889",
+      "family": "fh",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_4_qubit.h5",
+      "sample": "sample_422",
+      "family": "fh",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_4_qubit.h5",
+      "sample": "sample_584",
+      "family": "fh",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_6_qubit.h5",
+      "sample": "sample_373",
+      "family": "fh",
+      "n_qubits": 6
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_6_qubit.h5",
+      "sample": "sample_192",
+      "family": "fh",
+      "n_qubits": 6
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_6_qubit.h5",
+      "sample": "sample_900",
+      "family": "fh",
+      "n_qubits": 6
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_8_qubit.h5",
+      "sample": "sample_800",
+      "family": "fh",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_8_qubit.h5",
+      "sample": "sample_290",
+      "family": "fh",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_8_qubit.h5",
+      "sample": "sample_175",
+      "family": "fh",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/ti_8_qubit.h5",
+      "sample": "sample_200",
+      "family": "ti",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/ti_8_qubit.h5",
+      "sample": "sample_841",
+      "family": "ti",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/ti_8_qubit.h5",
+      "sample": "sample_998",
+      "family": "ti",
+      "n_qubits": 8
+    }
+  ],
+  "val": [
+    {
+      "h5": "external/VQEzy/qmanybody/xyz_4_qubit.h5",
+      "sample": "sample_1777",
+      "family": "xyz",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/xyz_4_qubit.h5",
+      "sample": "sample_358",
+      "family": "xyz",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_4_qubit.h5",
+      "sample": "sample_49",
+      "family": "fh",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_4_qubit.h5",
+      "sample": "sample_310",
+      "family": "fh",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_6_qubit.h5",
+      "sample": "sample_626",
+      "family": "fh",
+      "n_qubits": 6
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_6_qubit.h5",
+      "sample": "sample_228",
+      "family": "fh",
+      "n_qubits": 6
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_8_qubit.h5",
+      "sample": "sample_214",
+      "family": "fh",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_8_qubit.h5",
+      "sample": "sample_266",
+      "family": "fh",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/ti_8_qubit.h5",
+      "sample": "sample_967",
+      "family": "ti",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/ti_8_qubit.h5",
+      "sample": "sample_149",
+      "family": "ti",
+      "n_qubits": 8
+    }
+  ],
+  "test": [
+    {
+      "h5": "external/VQEzy/qmanybody/xyz_4_qubit.h5",
+      "sample": "sample_1340",
+      "family": "xyz",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/xyz_4_qubit.h5",
+      "sample": "sample_1358",
+      "family": "xyz",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_4_qubit.h5",
+      "sample": "sample_374",
+      "family": "fh",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_4_qubit.h5",
+      "sample": "sample_709",
+      "family": "fh",
+      "n_qubits": 4
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_6_qubit.h5",
+      "sample": "sample_94",
+      "family": "fh",
+      "n_qubits": 6
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_6_qubit.h5",
+      "sample": "sample_131",
+      "family": "fh",
+      "n_qubits": 6
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_8_qubit.h5",
+      "sample": "sample_80",
+      "family": "fh",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/fh_8_qubit.h5",
+      "sample": "sample_242",
+      "family": "fh",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/ti_8_qubit.h5",
+      "sample": "sample_4",
+      "family": "ti",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/ti_8_qubit.h5",
+      "sample": "sample_446",
+      "family": "ti",
+      "n_qubits": 8
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/xyz_12_qubit.h5",
+      "sample": "sample_829",
+      "family": "xyz",
+      "n_qubits": 12,
+      "unseen_qubit_count": true
+    },
+    {
+      "h5": "external/VQEzy/qmanybody/xyz_12_qubit.h5",
+      "sample": "sample_1230",
+      "family": "xyz",
+      "n_qubits": 12,
+      "unseen_qubit_count": true
+    }
+  ]
+}
