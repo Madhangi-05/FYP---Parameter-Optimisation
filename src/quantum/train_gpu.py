@@ -117,9 +117,17 @@ def main():
     val_data = [_to_device(ci, device) for ci in val_data]
     test_data = [_to_device(ci, device) for ci in test_data]
 
-    diff_method = "parameter-shift" if args.unroll_steps > 0 else "best"
+    # Unrolled loss needs a correct second derivative through the inner GD
+    # steps. parameter-shift on a default (max_diff=1) QNode silently gets it
+    # WRONG (verified: ~half the true meta-gradient on xyz_4, disagreeing with
+    # both max_diff=2 and backprop, which agree). default.qubit+backprop is
+    # exact (pure torch autograd) and 3-9x faster at these qubit counts.
+    if args.unroll_steps > 0:
+        train_qdevice, diff_method = "default.qubit", "backprop"
+    else:
+        train_qdevice, diff_method = args.qdevice, "best"
     t_circ0 = time.perf_counter()
-    train_circuits = [_build_circuit(ci, args.qdevice, diff_method) for ci in train_data]
+    train_circuits = [_build_circuit(ci, train_qdevice, diff_method) for ci in train_data]
     print(f"Built {len(train_circuits)} training circuits in {time.perf_counter()-t_circ0:.1f}s")
 
     torch.manual_seed(args.seed)

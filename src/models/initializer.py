@@ -20,11 +20,14 @@ HW_NODE_DIM, HW_EDGE_DIM = 3, 1
 
 
 class VQEInitializer(nn.Module):
-    def __init__(self, hidden: int = 64, gnn_layers: int = 3, attn_heads: int = 4):
+    def __init__(self, hidden: int = 64, gnn_layers: int = 3, attn_heads: int = 4, use_hardware: bool = True):
+        """use_hardware=False drops G_D entirely (no encoder, no second
+        attention stage) -- the zero-noise-awareness variant."""
         super().__init__()
+        self.use_hardware = use_hardware
         self.ham_encoder = GraphEncoder(HAM_NODE_DIM, HAM_EDGE_DIM, hidden, gnn_layers)
         self.ansatz_encoder = GraphEncoder(ANSATZ_NODE_DIM, ANSATZ_EDGE_DIM, hidden, gnn_layers)
-        self.hw_encoder = GraphEncoder(HW_NODE_DIM, HW_EDGE_DIM, hidden, gnn_layers)
+        self.hw_encoder = GraphEncoder(HW_NODE_DIM, HW_EDGE_DIM, hidden, gnn_layers) if use_hardware else None
         self.fusion = CrossAttentionFusion(hidden, attn_heads)
         self.decoder = ParameterDecoder(hidden)
 
@@ -34,7 +37,7 @@ class VQEInitializer(nn.Module):
 
         h_ham = self.ham_encoder(gh.x, gh.edge_index, gh.edge_attr)
         h_ansatz = self.ansatz_encoder(ga.x, ga.edge_index, ga.edge_attr)
-        h_hw = self.hw_encoder(gd.x, gd.edge_index, gd.edge_attr)
+        h_hw = self.hw_encoder(gd.x, gd.edge_index, gd.edge_attr) if self.use_hardware else None
 
         fused = self.fusion(h_ansatz, h_ham, h_hw)
         theta0 = self.decoder(fused, h_ansatz, gi.n_layers, gi.n_qubits)

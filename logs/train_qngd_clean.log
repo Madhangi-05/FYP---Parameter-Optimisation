@@ -1,0 +1,36 @@
+variant=clean  data=/home/student/Desktop/FYP---Parameter-Optimisation/data_cache  device=cuda  K=3  eta=0.02
+Prepared train=1000 val=150 in 6.2s
+Model params: 70850  use_hardware=False
+  epoch   0: train E_K/|H|  -0.2807   val E_0/|H|  -0.1596  E_K/|H|  -0.2998  (110s)  *saved
+  epoch   1: train E_K/|H|  -0.2913   val E_0/|H|  -0.1641  E_K/|H|  -0.2987  (117s)
+  epoch   2: train E_K/|H|  -0.2903   val E_0/|H|  -0.1729  E_K/|H|  -0.2995  (122s)
+  epoch   3: train E_K/|H|  -0.2949   val E_0/|H|  -0.1701  E_K/|H|  -0.2985  (108s)
+  epoch   4: train E_K/|H|  -0.2940   val E_0/|H|  -0.1720  E_K/|H|  -0.2993  (111s)
+  epoch   5: train E_K/|H|  -0.2884   val E_0/|H|  -0.1718  E_K/|H|  -0.3039  (110s)  *saved
+  epoch   6: train E_K/|H|  -0.2965   val E_0/|H|  -0.1776  E_K/|H|  -0.3022  (117s)
+  epoch   7: train E_K/|H|  -0.2973   val E_0/|H|  -0.1768  E_K/|H|  -0.3029  (109s)
+  epoch   8: train E_K/|H|  -0.2969   val E_0/|H|  -0.1770  E_K/|H|  -0.2982  (112s)
+  epoch   9: train E_K/|H|  -0.2942   val E_0/|H|  -0.1795  E_K/|H|  -0.3043  (108s)  *saved
+  epoch  10: train E_K/|H|  -0.2963   val E_0/|H|  -0.1767  E_K/|H|  -0.2987  (122s)
+  epoch  11: train E_K/|H|  -0.2950   val E_0/|H|  -0.1869  E_K/|H|  -0.3059  (109s)  *saved
+  epoch  12: train E_K/|H|  -0.2974   val E_0/|H|  -0.1898  E_K/|H|  -0.3060  (111s)  *saved
+  epoch  13: train E_K/|H|  -0.3000   val E_0/|H|  -0.1784  E_K/|H|  -0.3037  (108s)
+  epoch  14: train E_K/|H|  -0.2997   val E_0/|H|  -0.1939  E_K/|H|  -0.2985  (111s)
+  epoch  15: train E_K/|H|  -0.2869   val E_0/|H|  -0.1719  E_K/|H|  -0.2979  (121s)
+  epoch  16: train E_K/|H|  -0.2934   val E_0/|H|  -0.1992  E_K/|H|  -0.3040  (117s)
+  epoch  17: train E_K/|H|  -0.3008   val E_0/|H|  -0.1763  E_K/|H|  -0.3079  (117s)  *saved
+  epoch  18: train E_K/|H|  -0.2992   val E_0/|H|  -0.2030  E_K/|H|  -0.3092  (111s)  *saved
+  epoch  19: train E_K/|H|  -0.3014   val E_0/|H|  -0.2047  E_K/|H|  -0.3092  (122s)  *saved
+  epoch  20: train E_K/|H|  -0.3029   val E_0/|H|  -0.1995  E_K/|H|  -0.3166  (119s)  *saved
+  epoch  21: train E_K/|H|  -0.3093   val E_0/|H|  -0.2023  E_K/|H|  -0.3206  (121s)  *saved
+  epoch  22: train E_K/|H|  -0.3131   val E_0/|H|  -0.2049  E_K/|H|  -0.3265  (119s)  *saved
+  epoch  23: train E_K/|H|  -0.3152   val E_0/|H|  -0.1962  E_K/|H|  -0.3234  (109s)
+  epoch  24: train E_K/|H|  -0.3179   val E_0/|H|  -0.1987  E_K/|H|  -0.3278  (119s)  *saved
+  epoch  25: train E_K/|H|  -0.3186   val E_0/|H|  -0.2056  E_K/|H|  -0.3166  (113s)
+  epoch  26: train E_K/|H|  -0.3112   val E_0/|H|  -0.2061  E_K/|H|  -0.3261  (121s)
+  epoch  27: train E_K/|H|  -0.3070   val E_0/|H|  -0.1990  E_K/|H|  -0.2778  (107s)
+  epoch  28: train E_K/|H|  -0.2942   val E_0/|H|  -0.1794  E_K/|H|  -0.3193  (122s)
+  epoch  29: train E_K/|H|  -0.3028   val E_0/|H|  -0.1907  E_K/|H|  -0.3212  (114s)
+
+Best val E_K/|H| = -0.3278 -> /home/student/Desktop/FYP---Parameter-Optimisation/checkpoints/qngd_clean.pt
+History -> /home/student/Desktop/FYP---Parameter-Optimisation/results/train_history_qngd_clean.json

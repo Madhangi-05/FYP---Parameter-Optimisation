@@ -1,0 +1,38 @@
+  n=4: 300/300 runs
+  n=6: 150/150 runs
+  n=8: 32/300 runs
+  n=8: 64/300 runs
+  n=8: 96/300 runs
+  n=8: 128/300 runs
+  n=8: 160/300 runs
+  n=8: 192/300 runs
+  n=8: 224/300 runs
+  n=8: 256/300 runs
+  n=8: 288/300 runs
+  n=8: 300/300 runs
+
+Saved -> /home/student/Desktop/FYP---Parameter-Optimisation/results/noisy_eval_qngd_clean_vs_noisy_test.csv
+
+--- by ['family', 'n_qubits'] ---
+group  n  reach_random  reach_gnnA_clean  reach_gnnB_noisy gnnA_clean_wins_vs_random  gnnA_clean_saving_% gnnB_noisy_wins_vs_random  gnnB_noisy_saving_% B_beats_A
+ fh 4 30          0.60              0.40              0.40                      6/30               -28.59                      8/30               -24.35      8/30
+ fh 6 30          0.31              0.40              0.47                     11/30                 7.09                     14/30                12.38     10/30
+ fh 8 30          0.36              0.17              0.30                      4/30                -2.85                      7/30                -4.46      5/30
+ ti 8 30          0.53              1.00              1.00                     30/30                91.98                     30/30                94.44     24/30
+xyz 4 30          0.42              0.70              0.57                     18/30                23.48                     15/30                10.91      4/30
+
+--- by ['noise_level'] ---
+ group  n  reach_random  reach_gnnA_clean  reach_gnnB_noisy gnnA_clean_wins_vs_random  gnnA_clean_saving_% gnnB_noisy_wins_vs_random  gnnB_noisy_saving_% B_beats_A
+  high 59          0.29              0.41              0.51                     22/59                13.26                     29/59                20.73     24/59
+   low 40          0.59              0.68              0.60                     22/40                18.24                     20/40                10.74      7/40
+medium 51          0.51              0.57              0.55                     25/51                17.40                     25/51                13.84     20/51
+
+--- by ['topology'] ---
+ group  n  reach_random  reach_gnnA_clean  reach_gnnB_noisy gnnA_clean_wins_vs_random  gnnA_clean_saving_% gnnB_noisy_wins_vs_random  gnnB_noisy_saving_% B_beats_A
+  grid 54          0.49              0.48              0.48                     21/54                10.32                     24/54                10.55     17/54
+linear 46          0.38              0.59              0.63                     25/46                25.85                     26/46                28.71     22/46
+  ring 50          0.46              0.54              0.54                     23/50                11.58                     24/50                10.46     12/50
+
+--- by overall ---
+group   n  reach_random  reach_gnnA_clean  reach_gnnB_noisy gnnA_clean_wins_vs_random  gnnA_clean_saving_% gnnB_noisy_wins_vs_random  gnnB_noisy_saving_% B_beats_A
+  ALL 150          0.44              0.53              0.55                    69/150                15.69                    74/150                16.31    51/150

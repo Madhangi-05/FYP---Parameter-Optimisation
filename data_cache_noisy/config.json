@@ -1,0 +1,49 @@
+{
+  "src": "/home/student/Desktop/FYP---Parameter-Optimisation/data_cache",
+  "seed": 0,
+  "levels": [
+    "low",
+    "medium",
+    "high"
+  ],
+  "topologies": [
+    "linear",
+    "ring",
+    "grid"
+  ],
+  "counts": {
+    "train": {
+      "high/grid": 88,
+      "high/linear": 113,
+      "high/ring": 134,
+      "low/grid": 103,
+      "low/linear": 102,
+      "low/ring": 118,
+      "medium/grid": 114,
+      "medium/linear": 102,
+      "medium/ring": 126
+    },
+    "val": {
+      "high/grid": 16,
+      "high/linear": 17,
+      "high/ring": 19,
+      "low/grid": 15,
+      "low/linear": 17,
+      "low/ring": 16,
+      "medium/grid": 19,
+      "medium/linear": 17,
+      "medium/ring": 14
+    },
+    "test": {
+      "high/grid": 21,
+      "high/linear": 16,
+      "high/ring": 27,
+      "low/grid": 17,
+      "low/linear": 17,
+      "low/ring": 9,
+      "medium/grid": 20,
+      "medium/linear": 15,
+      "medium/ring": 16
+    }
+  }
+}

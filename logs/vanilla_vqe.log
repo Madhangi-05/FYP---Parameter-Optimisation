@@ -1,0 +1,24 @@
+Saved random starts -> /home/student/Desktop/FYP---Parameter-Optimisation/results/random_starts_test.npz
+Vanilla VQE (Adam lr=0.001, 2000 steps): 158 instances x 3 starts = 474 runs
+  50/474 runs done
+  100/474 runs done
+  150/474 runs done
+  200/474 runs done
+  250/474 runs done
+  300/474 runs done
+  350/474 runs done
+  400/474 runs done
+  450/474 runs done
+  474/474 runs done
+
+Saved -> /home/student/Desktop/FYP---Parameter-Optimisation/results/vanilla_vqe_test.csv
+
+Vanilla VQE (paper's method), per group -- thresholds: exact = ground+0.05, rel = within 1% of ground
+                 runs  evals_per_step  mean_final_gap  reach_exact  reach_rel  median_evals_rel(reached)  evals_full_budget
+family n_qubits                                                                                                            
+fh     4           90             165           0.380        0.233      0.189                   254100.0             330000
+       6           90             245           1.886        0.033      0.000                        NaN             490000
+       8           90             325           2.849        0.000      0.000                        NaN             650000
+ti     8           90             195           0.459        0.389      0.678                   265980.0             390000
+xyz    4           90              99           1.299        0.078      0.078                   119493.0             198000
+       12          24             291           5.194        0.000      0.042                   558720.0             582000

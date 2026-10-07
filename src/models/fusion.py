@@ -22,13 +22,15 @@ class CrossAttentionFusion(nn.Module):
         self.norm1 = nn.LayerNorm(dim)
         self.norm2 = nn.LayerNorm(dim)
 
-    def forward(self, h_ansatz: torch.Tensor, h_ham: torch.Tensor, h_hw: torch.Tensor) -> torch.Tensor:
+    def forward(self, h_ansatz: torch.Tensor, h_ham: torch.Tensor, h_hw: torch.Tensor | None) -> torch.Tensor:
         q = h_ansatz.unsqueeze(0)  # (1, n_ansatz_nodes, dim)
         kv_h = h_ham.unsqueeze(0)  # (1, n_qubits, dim)
-        kv_d = h_hw.unsqueeze(0)  # (1, n_qubits, dim)
 
         fused_ha, _ = self.attn_ansatz_to_ham(q, kv_h, kv_h)
         fused_ha = self.norm1(q + fused_ha)
+        if h_hw is None:  # no hardware/noise graph (ablation: zero noise awareness)
+            return fused_ha.squeeze(0)
+        kv_d = h_hw.unsqueeze(0)  # (1, n_qubits, dim)
 
         fused_had, _ = self.attn_fused_to_hw(fused_ha, kv_d, kv_d)
         fused = self.norm2(fused_ha + fused_had)

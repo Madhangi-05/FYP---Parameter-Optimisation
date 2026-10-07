@@ -1,0 +1,53 @@
+Using device: cuda
+  GPU: NVIDIA RTX A5000
+PennyLane device for circuit simulation: lightning.qubit (CPU-bound unless this is a GPU-native plugin)
+Loaded cached dataset: train=1000  val=150  test=158
+Built 1000 training circuits in 3.0s
+
+Training on 1000 instances, 30 epochs, loss=E(theta_0)
+  epoch   0: mean train E(theta_0) =   -7.1138  (37.3s)
+  epoch   1: mean train E(theta_0) =   -7.4431  (29.2s)
+  epoch   2: mean train E(theta_0) =   -7.4211  (28.9s)
+  epoch   3: mean train E(theta_0) =   -7.4451  (29.2s)
+  epoch   4: mean train E(theta_0) =   -7.4588  (29.1s)
+  [val@epoch4] GNN beat random init on 132/150 instances
+  epoch   5: mean train E(theta_0) =   -7.4327  (28.4s)
+  epoch   6: mean train E(theta_0) =   -7.3986  (29.9s)
+  epoch   7: mean train E(theta_0) =   -7.4051  (28.9s)
+  epoch   8: mean train E(theta_0) =   -7.4342  (27.7s)
+  epoch   9: mean train E(theta_0) =   -7.3388  (30.5s)
+  [val@epoch9] GNN beat random init on 132/150 instances
+  epoch  10: mean train E(theta_0) =   -7.4931  (28.4s)
+  epoch  11: mean train E(theta_0) =   -7.4866  (27.9s)
+  epoch  12: mean train E(theta_0) =   -7.4936  (29.2s)
+  epoch  13: mean train E(theta_0) =   -7.3744  (28.8s)
+  epoch  14: mean train E(theta_0) =   -7.4841  (28.4s)
+  [val@epoch14] GNN beat random init on 132/150 instances
+  epoch  15: mean train E(theta_0) =   -7.3961  (29.0s)
+  epoch  16: mean train E(theta_0) =   -7.4717  (29.5s)
+  epoch  17: mean train E(theta_0) =   -7.4931  (29.8s)
+  epoch  18: mean train E(theta_0) =   -7.5698  (28.7s)
+  epoch  19: mean train E(theta_0) =   -7.5139  (29.3s)
+  [val@epoch19] GNN beat random init on 132/150 instances
+  epoch  20: mean train E(theta_0) =   -7.5505  (28.7s)
+  epoch  21: mean train E(theta_0) =   -7.6580  (28.3s)
+  epoch  22: mean train E(theta_0) =   -7.7171  (29.6s)
+  epoch  23: mean train E(theta_0) =   -7.6338  (28.6s)
+  epoch  24: mean train E(theta_0) =   -7.6796  (29.1s)
+  [val@epoch24] GNN beat random init on 132/150 instances
+  epoch  25: mean train E(theta_0) =   -7.7493  (28.7s)
+  epoch  26: mean train E(theta_0) =   -7.8207  (28.7s)
+  epoch  27: mean train E(theta_0) =   -7.9036  (28.7s)
+  epoch  28: mean train E(theta_0) =   -7.6508  (28.0s)
+  epoch  29: mean train E(theta_0) =   -7.7293  (29.1s)
+  [val@epoch29] GNN beat random init on 132/150 instances
+
+Total training time: 902.1s
+
+=== Final test evaluation ===
+  [test/unseen_sample] GNN beat random init on 133/150 instances
+  [test/unseen_qubit_count] GNN beat random init on 5/8 instances
+
+Saved checkpoint -> /home/student/Desktop/FYP---Parameter-Optimisation/checkpoints/gpu_initializer.pt
+Saved training history -> /home/student/Desktop/FYP---Parameter-Optimisation/results/gpu_train_history.json
+Saved test results -> /home/student/Desktop/FYP---Parameter-Optimisation/results/gpu_test_results.json

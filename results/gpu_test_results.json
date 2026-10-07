@@ -1,0 +1,1586 @@
+{
+  "unseen_sample": [
+    {
+      "family": "xyz",
+      "sample": "sample_1529",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.015777143582049,
+      "gnn_init_energy": -0.5741622447967529,
+      "random_init_energy": 0.13530921638011933,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1821",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.2135165739343026,
+      "gnn_init_energy": -0.49680274724960327,
+      "random_init_energy": 0.05588922910392284,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_253",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.56298872722525,
+      "gnn_init_energy": -0.08758717775344849,
+      "random_init_energy": 0.40524237155914306,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_943",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.514940799002887,
+      "gnn_init_energy": 1.3623217344284058,
+      "random_init_energy": 0.10470024235546589,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_923",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.199999999999996,
+      "gnn_init_energy": -1.293225884437561,
+      "random_init_energy": -0.4612623035907745,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1283",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.893991865927706,
+      "gnn_init_energy": 0.4664986729621887,
+      "random_init_energy": -0.045080366730690005,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_181",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -12.162154347217605,
+      "gnn_init_energy": 2.261070966720581,
+      "random_init_energy": 0.656608498096466,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1414",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.795625447610544,
+      "gnn_init_energy": -0.9405612945556641,
+      "random_init_energy": 0.1770368695259094,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1992",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.760318110989439,
+      "gnn_init_energy": -1.1113005876541138,
+      "random_init_energy": -0.13278544023633004,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1612",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -17.253371876404337,
+      "gnn_init_energy": 2.582252264022827,
+      "random_init_energy": -0.5703171133995056,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_619",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.550675947317061,
+      "gnn_init_energy": 0.18172268569469452,
+      "random_init_energy": -0.4275308184325695,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_63",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.928174343748058,
+      "gnn_init_energy": 1.3516426086425781,
+      "random_init_energy": 0.5262395367026329,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_791",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.8855345778380137,
+      "gnn_init_energy": -0.388147234916687,
+      "random_init_energy": 0.013864780962467193,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_219",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.88333758739689,
+      "gnn_init_energy": -1.0297974348068237,
+      "random_init_energy": 0.6395623445510864,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1627",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.7470476323047865,
+      "gnn_init_energy": -0.2841702401638031,
+      "random_init_energy": 0.28761096149682996,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1364",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -11.43063580519662,
+      "gnn_init_energy": 1.8056596517562866,
+      "random_init_energy": -0.3417074680328369,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1444",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -9.979713912951087,
+      "gnn_init_energy": 0.8661220073699951,
+      "random_init_energy": -0.4710381984710693,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_847",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -9.90643370516022,
+      "gnn_init_energy": 2.597086191177368,
+      "random_init_energy": 0.5107559621334076,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1604",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -11.021441943596344,
+      "gnn_init_energy": 0.3952879309654236,
+      "random_init_energy": 0.684578637778759,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1217",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -6.889729389200436,
+      "gnn_init_energy": 1.4510692358016968,
+      "random_init_energy": 0.3887361839413643,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_940",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -5.221439084168816,
+      "gnn_init_energy": -0.01078873686492443,
+      "random_init_energy": 0.30660551488399507,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1074",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -5.4,
+      "gnn_init_energy": 0.8549937605857849,
+      "random_init_energy": 0.03644740581512451,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1933",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.642011725040441,
+      "gnn_init_energy": -0.44065964221954346,
+      "random_init_energy": 0.5037340193986892,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1250",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -9.870289480066429,
+      "gnn_init_energy": 0.1626742035150528,
+      "random_init_energy": -0.6279349446296691,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1802",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -5.217010086498492,
+      "gnn_init_energy": 0.20999228954315186,
+      "random_init_energy": 0.28932920694351194,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1991",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.181478242773014,
+      "gnn_init_energy": 1.031578540802002,
+      "random_init_energy": 0.3652054212987423,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_302",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.919265264065604,
+      "gnn_init_energy": 0.1630915403366089,
+      "random_init_energy": -0.30267488956451416,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_410",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -12.943611723639656,
+      "gnn_init_energy": 2.441612720489502,
+      "random_init_energy": -0.3452668428421021,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_630",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -9.872687709801482,
+      "gnn_init_energy": -1.3002185821533203,
+      "random_init_energy": 0.4770140528678894,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_573",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.844337892355158,
+      "gnn_init_energy": 2.1873371601104736,
+      "random_init_energy": 0.1421859085559845,
+      "gnn_better": false
+    },
+    {
+      "family": "fh",
+      "sample": "sample_826",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.0484937025383068,
+      "gnn_init_energy": 0.536790132522583,
+      "random_init_energy": 1.24884135723114,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_745",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -0.5000000000000001,
+      "gnn_init_energy": 1.2704315185546875,
+      "random_init_energy": 2.1486481428146362,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_732",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.454014708917737,
+      "gnn_init_energy": 1.0015984773635864,
+      "random_init_energy": 2.512670546770096,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_678",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.742095207992922,
+      "gnn_init_energy": 0.11060241609811783,
+      "random_init_energy": 1.0895166873931885,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_167",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.416643582596532,
+      "gnn_init_energy": 0.782062828540802,
+      "random_init_energy": 1.8163018822669983,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_912",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -5.766309194369279,
+      "gnn_init_energy": -0.017726603895425797,
+      "random_init_energy": 0.559746241569519,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_97",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -0.7094810050208546,
+      "gnn_init_energy": 0.18483096361160278,
+      "random_init_energy": 0.39443889260292053,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_573",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.161265012134346,
+      "gnn_init_energy": 0.4351769983768463,
+      "random_init_energy": 1.0843842267990111,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_973",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.8690470119715012,
+      "gnn_init_energy": 0.3024333715438843,
+      "random_init_energy": 0.9263504896312952,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_520",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -2.6000000000000005,
+      "gnn_init_energy": -0.13538199663162231,
+      "random_init_energy": 0.027834630012512206,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_672",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -0.7,
+      "gnn_init_energy": 1.4534937143325806,
+      "random_init_energy": 2.4818446397781373,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_878",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -1.4000000000000001,
+      "gnn_init_energy": 1.413472294807434,
+      "random_init_energy": 2.5516515016555785,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_100",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.2850793399940965,
+      "gnn_init_energy": 0.09207190573215485,
+      "random_init_energy": 0.9079306066036225,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_378",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -1.2553864678361282,
+      "gnn_init_energy": 0.7657796740531921,
+      "random_init_energy": 1.4488473892211915,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_215",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.642640687119287,
+      "gnn_init_energy": 0.18777500092983246,
+      "random_init_energy": 0.7027921199798584,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_809",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.108240422210494,
+      "gnn_init_energy": 0.2581805884838104,
+      "random_init_energy": 0.8736726086586714,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_416",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -2.1284430150625613,
+      "gnn_init_energy": 0.5548346638679504,
+      "random_init_energy": 1.183316707611084,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_633",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -6.128075734570524,
+      "gnn_init_energy": 0.8813849687576294,
+      "random_init_energy": 2.1666273057460783,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_455",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -6.754639429682168,
+      "gnn_init_energy": 0.6573448181152344,
+      "random_init_energy": 1.8419953882694244,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_768",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.651608782763267,
+      "gnn_init_energy": 1.1504085063934326,
+      "random_init_energy": 2.7910480737686156,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_273",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -0.7000000000000001,
+      "gnn_init_energy": 1.1132712364196777,
+      "random_init_energy": 1.933654260635376,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_413",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -1.7177080940897131,
+      "gnn_init_energy": 0.25782719254493713,
+      "random_init_energy": 0.6265618026256561,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_278",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": 0.0,
+      "gnn_init_energy": 1.6584060192108154,
+      "random_init_energy": 2.6861329317092895,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_760",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -2.405551275463992,
+      "gnn_init_energy": 0.6356750726699829,
+      "random_init_energy": 1.352056086063385,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_754",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.484227346873537,
+      "gnn_init_energy": 0.08165696263313293,
+      "random_init_energy": 0.9100717306137085,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_524",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.753471552684553,
+      "gnn_init_energy": -0.29887357354164124,
+      "random_init_energy": 0.37044582366943357,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_303",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -2.317862823809784,
+      "gnn_init_energy": 0.5444343686103821,
+      "random_init_energy": 1.185457843542099,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_52",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -1.6311818998280618,
+      "gnn_init_energy": 0.5182577967643738,
+      "random_init_energy": 1.0672552406787872,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_122",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.353632953584203,
+      "gnn_init_energy": -0.2780732810497284,
+      "random_init_energy": 0.3661635875701904,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_59",
+      "n_qubits": 4,
+      "unseen_qubit_count": false,
+      "ground_energy": -6.963669806512832,
+      "gnn_init_energy": -0.08006903529167175,
+      "random_init_energy": 0.5725929856300354,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_260",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.197523660545424,
+      "gnn_init_energy": 0.5966447591781616,
+      "random_init_energy": 3.9794846534729005,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_2",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -2.890655415916733,
+      "gnn_init_energy": 0.5058522820472717,
+      "random_init_energy": 2.7430141448974608,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_548",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.2634651977189115,
+      "gnn_init_energy": 0.6806542277336121,
+      "random_init_energy": 3.5579230785369873,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_960",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -0.149024502364805,
+      "gnn_init_energy": 0.8432711362838745,
+      "random_init_energy": 3.499010992050171,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_707",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.41465027505795,
+      "gnn_init_energy": 0.2297985553741455,
+      "random_init_energy": 2.647953653335571,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_912",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -10.919699061733281,
+      "gnn_init_energy": -0.3915281891822815,
+      "random_init_energy": 0.4329433735460043,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_442",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -9.259510416653463,
+      "gnn_init_energy": -0.3430057764053345,
+      "random_init_energy": 0.31808497905731203,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_205",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -0.6750694777869126,
+      "gnn_init_energy": 0.8518671989440918,
+      "random_init_energy": 3.690855693817139,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_524",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -5.262014724287249,
+      "gnn_init_energy": 0.7210382223129272,
+      "random_init_energy": 4.129249382019043,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_730",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.163972525218586,
+      "gnn_init_energy": 0.21926426887512207,
+      "random_init_energy": 2.5541353464126586,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_913",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.116500139123843,
+      "gnn_init_energy": 0.43092554807662964,
+      "random_init_energy": 3.2583940505981444,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_70",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.496856873454756,
+      "gnn_init_energy": 0.33095964789390564,
+      "random_init_energy": 2.9041606903076174,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_256",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -2.8284271247461925,
+      "gnn_init_energy": -0.11707846820354462,
+      "random_init_energy": 0.04208009093999863,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_123",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -11.587307670118333,
+      "gnn_init_energy": 0.035284705460071564,
+      "random_init_energy": 2.425410747528076,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_63",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -1.371825919028924,
+      "gnn_init_energy": 0.5965741276741028,
+      "random_init_energy": 2.807376432418823,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_589",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.660286787641594,
+      "gnn_init_energy": 0.8321768045425415,
+      "random_init_energy": 4.47927451133728,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_509",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -10.422731035600554,
+      "gnn_init_energy": -0.24819976091384888,
+      "random_init_energy": 0.966397362947464,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_826",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.950391197454939,
+      "gnn_init_energy": 0.5012414455413818,
+      "random_init_energy": 3.1351195335388184,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_269",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -1.8315673935299992,
+      "gnn_init_energy": 0.6175757646560669,
+      "random_init_energy": 2.9950130939483643,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_687",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -12.119817948851686,
+      "gnn_init_energy": 0.4343315064907074,
+      "random_init_energy": 4.2344495296478275,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_24",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -9.503428238899362,
+      "gnn_init_energy": 0.20534367859363556,
+      "random_init_energy": 2.7543960332870485,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_742",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.8750689368066324,
+      "gnn_init_energy": 0.5475537180900574,
+      "random_init_energy": 3.118287515640259,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_418",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -12.060866180873655,
+      "gnn_init_energy": -0.10930034518241882,
+      "random_init_energy": 1.8919567823410035,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_119",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -11.23928706471016,
+      "gnn_init_energy": -0.42513203620910645,
+      "random_init_energy": 0.34754104912281036,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_432",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -12.260855641615466,
+      "gnn_init_energy": -0.4065033793449402,
+      "random_init_energy": 0.6332040753215551,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_994",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -1.3050904895865156,
+      "gnn_init_energy": 0.7944576740264893,
+      "random_init_energy": 3.613869476318359,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_79",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.908616558576151,
+      "gnn_init_energy": -0.12375129014253616,
+      "random_init_energy": 1.214188325405121,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_150",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": 6.938893903907228e-18,
+      "gnn_init_energy": 0.021846987307071686,
+      "random_init_energy": 0.08961033448576927,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_56",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -5.040594810762297,
+      "gnn_init_energy": 0.41313454508781433,
+      "random_init_energy": 2.776678228378296,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_982",
+      "n_qubits": 6,
+      "unseen_qubit_count": false,
+      "ground_energy": -9.124328932137086,
+      "gnn_init_energy": -0.09127800911664963,
+      "random_init_energy": 1.3976170063018798,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_194",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -16.532882780648432,
+      "gnn_init_energy": 0.1864340901374817,
+      "random_init_energy": 3.2390553951263428,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_312",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.080493140329338,
+      "gnn_init_energy": 0.7807360291481018,
+      "random_init_energy": 3.8187397003173826,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_475",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -15.727579914621208,
+      "gnn_init_energy": -0.05924144759774208,
+      "random_init_energy": 2.073644256591797,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_519",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -4.491052314309564,
+      "gnn_init_energy": 0.7124137282371521,
+      "random_init_energy": 3.6157138347625732,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_952",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -6.260232766241691,
+      "gnn_init_energy": 0.6976632475852966,
+      "random_init_energy": 3.8495410442352296,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_20",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -19.5473570315379,
+      "gnn_init_energy": 0.11631769686937332,
+      "random_init_energy": 3.3790700912475584,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_837",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.917711529815141,
+      "gnn_init_energy": 0.13862954080104828,
+      "random_init_energy": 1.7730804681777954,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_429",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.952882308492424,
+      "gnn_init_energy": 0.7652165293693542,
+      "random_init_energy": 4.395607566833496,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_791",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -19.456623751275416,
+      "gnn_init_energy": 0.02028115838766098,
+      "random_init_energy": 2.957617664337158,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_491",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -17.78454405168688,
+      "gnn_init_energy": -0.19756929576396942,
+      "random_init_energy": 1.781939435005188,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_316",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.6155602057153717,
+      "gnn_init_energy": 0.9307485222816467,
+      "random_init_energy": 4.334004640579224,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_174",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -6.042117005874959,
+      "gnn_init_energy": -0.021664677187800407,
+      "random_init_energy": 0.80556161403656,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_167",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -17.06213004965205,
+      "gnn_init_energy": 0.14502760767936707,
+      "random_init_energy": 3.1401092052459716,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_287",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -7.406920732549151,
+      "gnn_init_energy": 0.6287820339202881,
+      "random_init_energy": 3.7608621597290037,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_418",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -16.617811718802173,
+      "gnn_init_energy": -0.08726152032613754,
+      "random_init_energy": 2.083911395072937,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_348",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -13.531621226478752,
+      "gnn_init_energy": -0.23391811549663544,
+      "random_init_energy": 0.9969121098518372,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_478",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -14.310835055998638,
+      "gnn_init_energy": -0.45046868920326233,
+      "random_init_energy": 0.16427443623542787,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_542",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -17.179835453947128,
+      "gnn_init_energy": 0.3649868071079254,
+      "random_init_energy": 4.087093782424927,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_496",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.289394462733453,
+      "gnn_init_energy": -0.03141259402036667,
+      "random_init_energy": 0.3533077329397202,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_449",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -9.243682610313092,
+      "gnn_init_energy": 0.09651187807321548,
+      "random_init_energy": 1.7884811878204345,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_741",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -8.20198267381122,
+      "gnn_init_energy": -0.18642379343509674,
+      "random_init_energy": 0.4097770661115646,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_103",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -3.9399958493584095,
+      "gnn_init_energy": 0.9440897107124329,
+      "random_init_energy": 4.4432178974151615,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_806",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -17.057839284856442,
+      "gnn_init_energy": 0.021816112101078033,
+      "random_init_energy": 2.614577078819275,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_861",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -0.9582087335297529,
+      "gnn_init_energy": 1.2180609703063965,
+      "random_init_energy": 4.912280750274658,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_9",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -5.691755855791333,
+      "gnn_init_energy": 0.0869276374578476,
+      "random_init_energy": 1.2218804359436035,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_229",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -5.250458761162192,
+      "gnn_init_energy": 0.1010017842054367,
+      "random_init_energy": 1.2167468547821045,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_944",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -10.58508493565658,
+      "gnn_init_energy": 0.17696039378643036,
+      "random_init_energy": 2.3294140338897704,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_522",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -13.66615599883668,
+      "gnn_init_energy": 0.47578346729278564,
+      "random_init_energy": 4.046025133132934,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_682",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -16.526402916285022,
+      "gnn_init_energy": 0.585752010345459,
+      "random_init_energy": 4.9197314262390135,
+      "gnn_better": true
+    },
+    {
+      "family": "fh",
+      "sample": "sample_867",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -14.103956919642968,
+      "gnn_init_energy": 0.4619472324848175,
+      "random_init_energy": 4.051158809661866,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_795",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -13.731656561750166,
+      "gnn_init_energy": -6.448703765869141,
+      "random_init_energy": -0.09410135447978973,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_445",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -26.727530643188295,
+      "gnn_init_energy": -11.122641563415527,
+      "random_init_energy": -0.05645582973957062,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_29",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -27.818098136270123,
+      "gnn_init_energy": -13.443050384521484,
+      "random_init_energy": -0.5902494847774505,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_824",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -16.01251604495068,
+      "gnn_init_energy": -6.915335178375244,
+      "random_init_energy": -0.3929719775915146,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_456",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -28.59914760395398,
+      "gnn_init_energy": -13.777517318725586,
+      "random_init_energy": -0.6104310154914856,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_589",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -17.784973991987236,
+      "gnn_init_energy": -8.276932716369629,
+      "random_init_energy": -0.4013611763715744,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_939",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -26.18420357725868,
+      "gnn_init_energy": -12.768438339233398,
+      "random_init_energy": -0.22970005869865417,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_896",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -20.604819467296416,
+      "gnn_init_energy": -10.68979263305664,
+      "random_init_energy": -0.32562137246131895,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_797",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -43.538358061362345,
+      "gnn_init_energy": -20.473878860473633,
+      "random_init_energy": -0.30135123133659364,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_850",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -44.117313665408254,
+      "gnn_init_energy": -17.38765525817871,
+      "random_init_energy": -0.016541600227355957,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_578",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -31.050016025625943,
+      "gnn_init_energy": -16.08659553527832,
+      "random_init_energy": -0.5038517504930496,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_876",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -44.01515238456422,
+      "gnn_init_energy": -15.52530574798584,
+      "random_init_energy": 0.42858562916517257,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_745",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -29.698187633948173,
+      "gnn_init_energy": -10.37826919555664,
+      "random_init_energy": 0.0870833232998848,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_555",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -27.098825545428085,
+      "gnn_init_energy": -10.015449523925781,
+      "random_init_energy": 0.20703794416040183,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_377",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -23.517369760371807,
+      "gnn_init_energy": -11.078779220581055,
+      "random_init_energy": -0.5213157802820205,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_529",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -11.389020540584324,
+      "gnn_init_energy": -5.31818962097168,
+      "random_init_energy": -0.07505421116948127,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_97",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -25.060023971707402,
+      "gnn_init_energy": -9.174301147460938,
+      "random_init_energy": 0.20590357892215252,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_281",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -17.247402796873992,
+      "gnn_init_energy": -8.144121170043945,
+      "random_init_energy": -0.12267207652330399,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_949",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -12.65515001797691,
+      "gnn_init_energy": -6.398797035217285,
+      "random_init_energy": -0.23877487033605577,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_963",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -18.965287991938748,
+      "gnn_init_energy": -8.606244087219238,
+      "random_init_energy": -0.10135623067617416,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_844",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -41.31473030832727,
+      "gnn_init_energy": -21.404081344604492,
+      "random_init_energy": -0.5789059698581696,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_19",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -37.647473358809336,
+      "gnn_init_energy": -16.87656593322754,
+      "random_init_energy": -0.18253095149993898,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_911",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -36.18612540640809,
+      "gnn_init_energy": -14.871671676635742,
+      "random_init_energy": -0.061441996693611146,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_212",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -45.37087705414971,
+      "gnn_init_energy": -13.744173049926758,
+      "random_init_energy": 0.27779158391058445,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_74",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -39.43538752787194,
+      "gnn_init_energy": -17.338451385498047,
+      "random_init_energy": -0.16121512949466704,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_426",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -42.48107111680501,
+      "gnn_init_energy": -13.383678436279297,
+      "random_init_energy": 0.22563629746437072,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_163",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -21.447371210888583,
+      "gnn_init_energy": -10.537835121154785,
+      "random_init_energy": -0.4394554615020752,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_397",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -49.003401399893875,
+      "gnn_init_energy": -17.065126419067383,
+      "random_init_energy": 0.5020566985011101,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_915",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -49.05770986187765,
+      "gnn_init_energy": -18.876571655273438,
+      "random_init_energy": 0.01656649708747864,
+      "gnn_better": true
+    },
+    {
+      "family": "ti",
+      "sample": "sample_857",
+      "n_qubits": 8,
+      "unseen_qubit_count": false,
+      "ground_energy": -48.15362907305365,
+      "gnn_init_energy": -16.872695922851562,
+      "random_init_energy": 0.13765547573566436,
+      "gnn_better": true
+    }
+  ],
+  "unseen_qubit_count": [
+    {
+      "family": "xyz",
+      "sample": "sample_829",
+      "n_qubits": 12,
+      "unseen_qubit_count": true,
+      "ground_energy": -25.36409689475187,
+      "gnn_init_energy": -4.866393089294434,
+      "random_init_energy": -0.9922495722770691,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1230",
+      "n_qubits": 12,
+      "unseen_qubit_count": true,
+      "ground_energy": -26.444085542299838,
+      "gnn_init_energy": -6.5306620597839355,
+      "random_init_energy": 0.7551759660243988,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1816",
+      "n_qubits": 12,
+      "unseen_qubit_count": true,
+      "ground_energy": -36.41468046010086,
+      "gnn_init_energy": 15.69676399230957,
+      "random_init_energy": 1.8646258993074298,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1127",
+      "n_qubits": 12,
+      "unseen_qubit_count": true,
+      "ground_energy": -29.82702261831317,
+      "gnn_init_energy": 16.300148010253906,
+      "random_init_energy": 2.29359689950943,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_709",
+      "n_qubits": 12,
+      "unseen_qubit_count": true,
+      "ground_energy": -50.90031678791321,
+      "gnn_init_energy": -9.399835586547852,
+      "random_init_energy": 1.2250233948230744,
+      "gnn_better": true
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_957",
+      "n_qubits": 12,
+      "unseen_qubit_count": true,
+      "ground_energy": -22.351036697477717,
+      "gnn_init_energy": 14.69383430480957,
+      "random_init_energy": 1.7162655115127563,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_1341",
+      "n_qubits": 12,
+      "unseen_qubit_count": true,
+      "ground_energy": -21.253565949128483,
+      "gnn_init_energy": 1.4222750663757324,
+      "random_init_energy": 1.1185076713562012,
+      "gnn_better": false
+    },
+    {
+      "family": "xyz",
+      "sample": "sample_796",
+      "n_qubits": 12,
+      "unseen_qubit_count": true,
+      "ground_energy": -37.10268470925021,
+      "gnn_init_energy": -17.190074920654297,
+      "random_init_energy": -1.7149860620498658,
+      "gnn_better": true
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+VQE+QNGD (stepsize=0.02, 200 steps), init=random: 474 runs
+  50/474 runs done
+  100/474 runs done
+  150/474 runs done
+  200/474 runs done
+  250/474 runs done
+  300/474 runs done
+  350/474 runs done
+  400/474 runs done
+  450/474 runs done
+  474/474 runs done
+
+Saved -> /home/student/Desktop/FYP---Parameter-Optimisation/results/qngd_random_test.csv
+
+VQE+QNGD init=random, per group -- thresholds: exact = ground+0.05, rel = within 1% of ground
+                 runs  evals_per_step  mean_final_gap  reach_exact  reach_rel  median_evals_rel(reached)  evals_full_budget
+family n_qubits                                                                                                            
+fh     4           90         169.500           0.209        0.322      0.256                     6300.0          33900.000
+       6           90         250.833           1.779        0.022      0.000                        NaN          50166.667
+       8           90         340.833           2.667        0.000      0.000                        NaN          68166.667
+ti     8           90         213.000           1.079        0.389      0.667                     3301.5          42600.000
+xyz    4           90         104.600           1.124        0.100      0.100                     3815.0          20920.000
+       12          24         317.000           3.878        0.000      0.000                        NaN          63400.000

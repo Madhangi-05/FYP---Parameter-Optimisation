@@ -1,0 +1,95 @@
+Loaded checkpoint: /home/student/Desktop/FYP---Parameter-Optimisation/checkpoints/gpu_initializer.pt
+Comparing on 158 test instances, 3 random starts each, 100 steps
+  100/1264 runs done
+  200/1264 runs done
+  300/1264 runs done
+  400/1264 runs done
+  500/1264 runs done
+  600/1264 runs done
+  700/1264 runs done
+  800/1264 runs done
+  900/1264 runs done
+  1000/1264 runs done
+  1100/1264 runs done
+  1200/1264 runs done
+  1264/1264 runs done
+
+Saved -> /home/student/Desktop/FYP---Parameter-Optimisation/results/convergence_gpu_initializer_test.csv
+
+=== Threshold: exact ===
+                                 reach_rate        median_evals_pen          mean_final_gap       
+init_kind                               gnn random              gnn   random            gnn random
+optimizer        family n_qubits                                                                  
+gradient_descent fh     4             0.133  0.289          16665.0  16665.0          1.499  0.381
+                        6             0.033  0.033          24745.0  24745.0          1.946  1.893
+                        8             0.000  0.000          32825.0  32825.0          5.356  2.886
+                 ti     8             0.300  0.256          19695.0  19695.0          2.340  2.219
+                 xyz    4             0.100  0.100           9999.0   9999.0          1.239  1.205
+                        12            0.000  0.000          29391.0  29391.0          4.110  4.454
+qngd             fh     4             0.033  0.322          17675.0  17675.0          1.941  0.317
+                        6             0.033  0.033          26159.0  26159.0          2.012  1.871
+                        8             0.000  0.000          34643.0  34643.0          5.756  2.823
+                 ti     8             0.367  0.389          21513.0  21513.0          1.248  1.207
+                 xyz    4             0.100  0.100          11009.0  11009.0          1.283  1.180
+                        12            0.000  0.000          32017.0  32017.0          4.117  4.220
+
+Head-to-head (GNN evals vs mean of random starts; ratio<1 = GNN cheaper):
+                                  gnn_fewer   n  median_eval_ratio
+optimizer        family n_qubits                                  
+gradient_descent fh     4                 1  30                1.0
+                        6                 1  30                1.0
+                        8                 0  30                1.0
+                 ti     8                 7  30                1.0
+                 xyz    4                 2  30                1.0
+                        12                0   8                1.0
+qngd             fh     4                 1  30                1.0
+                        6                 1  30                1.0
+                        8                 0  30                1.0
+                 ti     8                 9  30                1.0
+                 xyz    4                 2  30                1.0
+                        12                0   8                1.0
+
+Overall:
+                  gnn_fewer    n  median_eval_ratio
+optimizer                                          
+gradient_descent         11  158                1.0
+qngd                     13  158                1.0
+
+=== Threshold: best ===
+                                 reach_rate        median_evals_pen          mean_final_gap       
+init_kind                               gnn random              gnn   random            gnn random
+optimizer        family n_qubits                                                                  
+gradient_descent fh     4             0.200  0.522          16665.0  13332.0          1.499  0.381
+                        6             0.367  0.389          24745.0  24745.0          1.946  1.893
+                        8             0.033  0.467          32825.0  32825.0          5.356  2.886
+                 ti     8             1.000  0.889            390.0   3705.0          2.340  2.219
+                 xyz    4             0.400  0.633           9999.0   6583.5          1.239  1.205
+                        12            0.750  0.333          24444.0  29391.0          4.110  4.454
+qngd             fh     4             0.100  0.533          17675.0  13212.5          1.941  0.317
+                        6             0.267  0.433          26159.0  26159.0          2.012  1.871
+                        8             0.000  0.578          34643.0  28640.5          5.756  2.823
+                 ti     8             1.000  0.944            426.0   3834.0          1.248  1.207
+                 xyz    4             0.467  0.722           9919.0   6703.5          1.283  1.180
+                        12            0.750  0.542          21239.0  30590.5          4.117  4.220
+
+Head-to-head (GNN evals vs mean of random starts; ratio<1 = GNN cheaper):
+                                  gnn_fewer   n  median_eval_ratio
+optimizer        family n_qubits                                  
+gradient_descent fh     4                 3  30              1.217
+                        6                 8  30              1.058
+                        8                 1  30              1.203
+                 ti     8                25  30              0.080
+                 xyz    4                 7  30              1.250
+                        12                5   8              0.891
+qngd             fh     4                 3  30              1.230
+                        6                 6  30              1.073
+                        8                 0  30              1.331
+                 ti     8                23  30              0.080
+                 xyz    4                 7  30              1.313
+                        12                5   8              0.757
+
+Overall:
+                  gnn_fewer    n  median_eval_ratio
+optimizer                                          
+gradient_descent         49  158              1.068
+qngd                     44  158              1.139

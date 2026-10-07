@@ -1,0 +1,32 @@
+Using device: cuda
+  GPU: NVIDIA RTX A5000
+PennyLane device for circuit simulation: lightning.qubit (CPU-bound unless this is a GPU-native plugin)
+Loaded cached dataset: train=1000  val=150  test=158
+Built 1000 training circuits in 4.2s
+
+Training on 1000 instances, 12 epochs, loss=E(theta_3)
+  epoch   0: mean train E(theta_3) =   -8.5001  (409.5s)
+  epoch   1: mean train E(theta_3) =   -9.4383  (432.3s)
+  epoch   2: mean train E(theta_3) =   -9.3442  (441.8s)
+  epoch   3: mean train E(theta_3) =   -9.3139  (443.3s)
+  [val@epoch3] GNN beat random init on 134/150 instances
+  epoch   4: mean train E(theta_3) =  -10.2397  (270.5s)
+  epoch   5: mean train E(theta_3) =   -9.9557  (270.4s)
+  epoch   6: mean train E(theta_3) =   -9.6193  (275.7s)
+  epoch   7: mean train E(theta_3) =   -9.7300  (278.6s)
+  [val@epoch7] GNN beat random init on 126/150 instances
+  epoch   8: mean train E(theta_3) =   -9.6478  (282.8s)
+  epoch   9: mean train E(theta_3) =   -9.8369  (285.0s)
+  epoch  10: mean train E(theta_3) =  -10.0860  (284.5s)
+  epoch  11: mean train E(theta_3) =  -10.0649  (284.1s)
+  [val@epoch11] GNN beat random init on 134/150 instances
+
+Total training time: 3974.2s
+
+=== Final test evaluation ===
+  [test/unseen_sample] GNN beat random init on 134/150 instances
+  [test/unseen_qubit_count] GNN beat random init on 4/8 instances
+
+Saved checkpoint -> /home/student/Desktop/FYP---Parameter-Optimisation/checkpoints/gpu_initializer_unroll3.pt
+Saved training history -> /home/student/Desktop/FYP---Parameter-Optimisation/results/gpu_train_history.json
+Saved test results -> /home/student/Desktop/FYP---Parameter-Optimisation/results/gpu_test_results.json
