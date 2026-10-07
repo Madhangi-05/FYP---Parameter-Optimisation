@@ -1,9 +1,9 @@
 """Noisy evaluation: VQE+QNGD under each test instance's own noise
 (data_cache_noisy/test.pt), from
   - the same 3 random starts as every other study (random_starts_test.npz),
-  - GNN-A (no hardware/noise graph, trained noiseless),
-  - GNN-B (noise-aware: hardware graph + trained under noise),
-so GNN-A vs GNN-B isolates what noise awareness buys.
+  - any number of GNN checkpoints (--models), e.g. a variant without the
+    hardware/noise graph trained noiseless vs one trained under noise with
+    it -- isolating what noise awareness buys.
 
 Trajectories come from torch_sim.py (validated against qml.QNGOptimizer on
 default.mixed to ~1e-13), batched on the GPU -- default.mixed itself would
@@ -46,8 +46,15 @@ def load_model(path, use_hardware, hidden, gnn_layers):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--ckpt-a", default=str(REPO_ROOT / "checkpoints" / "qngd_clean.pt"))
-    ap.add_argument("--ckpt-b", default=str(REPO_ROOT / "checkpoints" / "qngd_noisy.pt"))
+    ap.add_argument(
+        "--models",
+        nargs="+",
+        default=[
+            f"gnnA_clean:{REPO_ROOT / 'checkpoints' / 'qngd_clean.pt'}:nohw",
+            f"gnnB_noisy:{REPO_ROOT / 'checkpoints' / 'qngd_noisy.pt'}:hw",
+        ],
+        help="name:checkpoint:hw|nohw (hw = model takes the hardware/noise graph)",
+    )
     ap.add_argument("--hidden", type=int, default=64)
     ap.add_argument("--gnn-layers", type=int, default=3)
     ap.add_argument("--n-random", type=int, default=3)
@@ -65,16 +72,18 @@ def main():
     cost = (
         pd.read_csv(REPO_ROOT / "results" / "qngd_random_test.csv").groupby(KEY).evals_per_step.mean().to_dict()
     )
-    model_a = load_model(args.ckpt_a, False, args.hidden, args.gnn_layers)
-    model_b = load_model(args.ckpt_b, True, args.hidden, args.gnn_layers)
+    models = {}
+    for spec in args.models:
+        name, path, hw = spec.rsplit(":", 2)
+        models[name] = load_model(path, hw == "hw", args.hidden, args.gnn_layers)
 
     runs = []  # (ci, init_name, theta0)
     with torch.no_grad():
         for ci in data:
             for r in range(args.n_random):
                 runs.append((ci, f"random{r}", starts[start_key(ci, r)]))
-            runs.append((ci, "gnnA_clean", model_a(ci).numpy().astype(np.float64)))
-            runs.append((ci, "gnnB_noisy", model_b(ci).numpy().astype(np.float64)))
+            for name, m in models.items():
+                runs.append((ci, name, m(ci).numpy().astype(np.float64)))
 
     rows = []
     by_n: dict[int, list] = {}
@@ -144,12 +153,11 @@ def main():
         rows = []
         for key, g in per.groupby(level=by) if by else [("ALL", per)]:
             r = {"group": key if isinstance(key, str) else " ".join(map(str, key)), "n": len(g)}
-            for k in ["random", "gnnA_clean", "gnnB_noisy"]:
+            r["reach_random"] = g["reached"]["random"].mean()
+            for k in models:
                 r[f"reach_{k}"] = g["reached"][k].mean()
-            for k in ["gnnA_clean", "gnnB_noisy"]:
-                r[f"{k}_wins_vs_random"] = f'{int((g["spent"][k] < g["spent"]["random"]).sum())}/{len(g)}'
-                r[f"{k}_saving_%"] = 100 * (1 - g["spent"][k].sum() / g["spent"]["random"].sum())
-            r["B_beats_A"] = f'{int((g["spent"]["gnnB_noisy"] < g["spent"]["gnnA_clean"]).sum())}/{len(g)}'
+                r[f"{k}_wins"] = f'{int((g["spent"][k] < g["spent"]["random"]).sum())}/{len(g)}'
+                r[f"{k}_saving%"] = 100 * (1 - g["spent"][k].sum() / g["spent"]["random"].sum())
             rows.append(r)
         return pd.DataFrame(rows).round(2).to_string(index=False)
 

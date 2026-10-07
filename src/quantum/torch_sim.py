@@ -179,6 +179,24 @@ class CZRXRYSim:
             F[:, idx[:, None], idx[None, :]] = cov
         return F
 
+    def gd_unroll(self, theta0, n_steps: int, stepsize: float, create_graph: bool = True):
+        """Plain gradient descent theta <- theta - eta * grad E, i.e. the
+        unrolled objective train_gpu.py used (--unroll-steps K --unroll-lr eta).
+        Same return convention as qngd_unroll."""
+        theta = theta0
+        energies = []
+        for _ in range(n_steps):
+            if not theta.requires_grad:
+                theta = theta.requires_grad_(True)
+            e = self.energy(theta)
+            energies.append(e)
+            g = torch.autograd.grad(e.sum(), theta, create_graph=create_graph)[0]
+            theta = theta - stepsize * g
+            if not create_graph:
+                theta = theta.detach()
+        energies.append(self.energy(theta))
+        return torch.stack(energies, dim=1), theta
+
     def qngd_unroll(self, theta0, n_steps: int, stepsize: float, create_graph: bool = True):
         """Runs n_steps of QNGOptimizer's update from theta0 (B,L,n,2).
         Returns energies (B, n_steps+1): E(theta_0..theta_K) -- last one is

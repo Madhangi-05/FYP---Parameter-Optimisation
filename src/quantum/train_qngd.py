@@ -75,7 +75,8 @@ def batch_loss(model, batch, args, create_graph):
     noise = [ci.noise for ci in batch] if batch[0].noise is not None else None
     sim = CZRXRYSim(n, L, H, noise=noise)
     theta0 = torch.stack([model(ci) for ci in batch])
-    energies, _ = sim.qngd_unroll(theta0, args.unroll_steps, args.stepsize, create_graph=create_graph)
+    unroll = sim.gd_unroll if args.unroll_opt == "gd" else sim.qngd_unroll
+    energies, _ = unroll(theta0, args.unroll_steps, args.stepsize, create_graph=create_graph)
     if args.no_normalize:
         return energies, energies
     scale = torch.tensor([ci.h_l1 for ci in batch], device=H.device, dtype=energies.dtype)
@@ -103,6 +104,11 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--loss", choices=["final", "traj_mean"], default="final")
     ap.add_argument("--no-normalize", action="store_true", help="raw energies instead of E/||H||_1")
+    ap.add_argument("--unroll-opt", choices=["qngd", "gd"], default="qngd",
+                    help="gd + --stepsize 0.1 reproduces train_gpu.py's GNN-GD objective")
+    ap.add_argument("--no-shuffle", action="store_true", help="fixed instance order each epoch (as train_gpu.py)")
+    ap.add_argument("--keep", choices=["best", "last"], default="best",
+                    help="checkpoint: best-val epoch, or final epoch (as train_gpu.py)")
     ap.add_argument("--ckpt-name", default=None)
     args = ap.parse_args()
 
@@ -111,7 +117,7 @@ def main():
     data_dir = Path(NOISY_DATASET_DIR if noisy else DATASET_DIR)
     ckpt_name = args.ckpt_name or f"qngd_{args.variant}.pt"
     cdtype = torch.complex64  # validated: <3e-6 drift vs complex128 over the unroll
-    print(f"variant={args.variant}  data={data_dir}  device={device}  K={args.unroll_steps}  eta={args.stepsize}  loss={args.loss}  normalize={not args.no_normalize}")
+    print(f"variant={args.variant}  data={data_dir}  device={device}  K={args.unroll_steps} x {args.unroll_opt}  eta={args.stepsize}  loss={args.loss}  normalize={not args.no_normalize}")
 
     t0 = time.perf_counter()
     train = prepare(torch.load(data_dir / "train.pt", weights_only=False), device, noisy, cdtype)
@@ -131,7 +137,7 @@ def main():
     for epoch in range(args.epochs):
         model.train()
         t_ep, losses = time.perf_counter(), []
-        for batch in batches(train, bs_for, True, rng):
+        for batch in batches(train, bs_for, not args.no_shuffle, rng):
             opt.zero_grad()
             norm_e, _ = batch_loss(model, batch, args, create_graph=True)
             obj = objective(norm_e, args.loss)
@@ -150,15 +156,16 @@ def main():
         improved = vk < best
         if improved:
             best = vk
+        if (improved and args.keep == "best") or (args.keep == "last" and epoch == args.epochs - 1):
             torch.save(model.state_dict(), ckpt_dir / ckpt_name)
         dt = time.perf_counter() - t_ep
         history.append({"epoch": epoch, "train_EK": tr, "val_E0": v0, "val_EK": vk, "seconds": dt})
-        print(f"  epoch {epoch:3d}: train obj {tr:8.4f}   val E_0 {v0:8.4f}  obj {vk:8.4f}  ({dt:.0f}s){'  *saved' if improved else ''}", flush=True)
+        print(f"  epoch {epoch:3d}: train obj {tr:8.4f}   val E_0 {v0:8.4f}  obj {vk:8.4f}  ({dt:.0f}s){'  *best' if improved else ''}", flush=True)
 
     out = REPO_ROOT / "results" / f"train_history_{Path(ckpt_name).stem}.json"
     with open(out, "w") as f:
         json.dump({"args": vars(args), "history": history, "best_val_EK": best}, f, indent=2)
-    print(f"\nBest val E_K/|H| = {best:.4f} -> {ckpt_dir / ckpt_name}")
+    print(f"\nBest val objective = {best:.4f}; saved ({args.keep}) -> {ckpt_dir / ckpt_name}")
     print(f"History -> {out}")
 
 

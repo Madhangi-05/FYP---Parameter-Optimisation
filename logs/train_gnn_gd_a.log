@@ -1,0 +1,18 @@
+variant=clean  data=/home/student/Desktop/FYP---Parameter-Optimisation/data_cache  device=cuda  K=3 x gd  eta=0.1  loss=final  normalize=False
+Prepared train=1000 val=150 in 7.2s
+Model params: 70850  use_hardware=False
+  epoch   0: train obj  -8.5577   val E_0   1.2820  obj  -4.9342  (349s)  *best
+  epoch   1: train obj  -8.8710   val E_0  -3.4387  obj  -8.1501  (338s)  *best
+  epoch   2: train obj  -9.6090   val E_0  -4.3901  obj  -7.6464  (339s)
+  epoch   3: train obj  -9.0664   val E_0  -3.3593  obj  -6.8839  (337s)
+  epoch   4: train obj  -9.8945   val E_0  -4.1225  obj  -7.4843  (321s)
+  epoch   5: train obj  -9.0915   val E_0  -4.0289  obj  -7.5509  (319s)
+  epoch   6: train obj  -9.0935   val E_0  -2.6556  obj  -6.5805  (322s)
+  epoch   7: train obj  -9.0414   val E_0  -3.6879  obj  -8.2881  (317s)  *best
+  epoch   8: train obj  -9.0518   val E_0  -4.3401  obj  -8.2670  (319s)
+  epoch   9: train obj  -9.1675   val E_0  -4.2482  obj  -8.2392  (317s)
+  epoch  10: train obj  -9.0802   val E_0  -3.0946  obj  -7.9405  (322s)
+  epoch  11: train obj  -9.2926   val E_0  -3.0355  obj  -7.8693  (321s)
+
+Best val objective = -8.2881; saved (last) -> /home/student/Desktop/FYP---Parameter-Optimisation/checkpoints/gnn_gd_a.pt
+History -> /home/student/Desktop/FYP---Parameter-Optimisation/results/train_history_gnn_gd_a.json
