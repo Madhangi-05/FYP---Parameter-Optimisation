@@ -1,0 +1,14 @@
+variant=clean  data=/home/student/Desktop/FYP---Parameter-Optimisation/data_cache  device=cuda  K=15  eta=0.02  loss=traj_mean  normalize=False
+Prepared train=1000 val=150 in 5.7s
+Model params: 70850  use_hardware=False
+  epoch   0: train obj  -8.9411   val E_0  -5.7618  obj  -8.6707  (373s)  *saved
+  epoch   1: train obj  -9.0022   val E_0  -4.5573  obj  -8.8261  (462s)  *saved
+  epoch   2: train obj  -8.8958   val E_0  -3.1881  obj  -8.5170  (255s)
+  epoch   3: train obj  -8.9005   val E_0  -4.8437  obj  -8.8369  (255s)  *saved
+  epoch   4: train obj  -9.0626   val E_0  -4.1512  obj  -8.7216  (259s)
+  epoch   5: train obj  -8.9602   val E_0  -5.1858  obj  -8.8824  (269s)  *saved
+  epoch   6: train obj  -9.0695   val E_0  -5.7679  obj  -8.8385  (261s)
+  epoch   7: train obj  -9.0352   val E_0  -5.2910  obj  -8.8839  (260s)  *saved
+
+Best val E_K/|H| = -8.8839 -> /home/student/Desktop/FYP---Parameter-Optimisation/checkpoints/pilot_clean_K15_traj.pt
+History -> /home/student/Desktop/FYP---Parameter-Optimisation/results/train_history_pilot_clean_K15_traj.json

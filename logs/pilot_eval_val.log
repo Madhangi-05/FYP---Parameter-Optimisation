@@ -1,0 +1,12 @@
+  n=4 done
+  n=6 done
+  n=8 done
+
+VQE+QNGD on val (noiseless), savings vs random starts:
+group   n  reach_random  reach_old_gd3  old_gd3_saving% old_gd3_wins  reach_gnnA  gnnA_saving% gnnA_wins  reach_pilot  pilot_saving% pilot_wins
+ fh 4  30          0.79           0.77            13.73        20/30        0.73        -40.61      6/30         0.47         -87.97       3/30
+ fh 6  30          0.68           0.70             0.44        12/30        0.73        -12.79      9/30         0.50         -32.96       5/30
+ fh 8  30          0.62           0.70            -3.05         6/30        0.67        -36.81      8/30         0.27         -69.71       0/30
+ ti 8  30          0.97           0.93            26.87        28/30        0.93         32.85     25/30         1.00          60.62      25/30
+xyz 4  30          0.91           0.90             4.45        15/30        1.00         24.04     21/30         0.90          -8.25      13/30
+ ALL  150          0.79           0.80             3.23       81/150        0.81        -20.35    69/150         0.63         -47.40     46/150
